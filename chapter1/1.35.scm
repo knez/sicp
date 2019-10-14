@@ -3,7 +3,7 @@
 ; = 1 + 2/(1 + √5) * (1 - √5)/(1 - √5) = 1 + (-1 + √5)/2
 ; = (1 + √5)/2 = φ
 
-(define tolerance 0.0001)
+(define tolerance 0.00001)
 
 (define (fixed-point f first-guess)
   (define (close-enough? a b)
@@ -16,5 +16,4 @@
   (try first-guess))
 
 ; Compute φ
-(fixed-point (lambda (x) (+ 1 (/ 1 x)))
-             1.0)
+(fixed-point (lambda (x) (+ 1 (/ 1 x))) 1.0)
