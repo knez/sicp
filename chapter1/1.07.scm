@@ -4,9 +4,8 @@
 ; difference in the good-enough? function will never fall within the threshold
 ; due to limited precision in arithmetic operations. This causes infinite loop.
 
-; Auxiliary procedures
+; Auxiliary procedure
 (define (average a b) (/ (+ a b) 2))
-(define (square x) (* x x))
 
 ; Improved Newton's method for square roots
 (define (sqrt x)
