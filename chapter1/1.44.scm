@@ -20,4 +20,4 @@
              (f (+ x dx)))))
 
 (define (n-fold f n)
-  (repeated (smooth f) n))
+  ((repeated smooth n) f))
