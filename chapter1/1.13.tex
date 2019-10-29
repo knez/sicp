@@ -1,0 +1,69 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{definitions}[2][Definitions]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\begin{document}
+
+\begin{problem}{1.13}
+Prove that fib(n) is the closest integer to $\frac{\varphi^n}{\sqrt{5}}$ by proving:
+ $$ fib(n) = \frac{\varphi^n - \psi^n}{\sqrt{5}} $$
+ \end{problem}
+
+\textbf{Definitions}
+\begin{equation*}
+  \begin{aligned}[c]
+    \varphi &= \frac{1 + \sqrt{5}}{2}\\
+    \psi &= \frac{1 - \sqrt{5}}{2}\\
+  \end{aligned}
+   \qquad\qquad
+ \begin{aligned}[c]
+    fib(n) = \begin{cases}
+               0                   & n = 0\\
+               1                   & n = 1\\
+               fib(n-1) + fib(n-2) & \text{otherwise}
+             \end{cases}
+  \end{aligned}
+\end{equation*}
+
+\vspace{5mm}
+Golden ratio property
+$$\varphi^2 = \varphi + 1$$
+\vspace{5mm}
+
+\begin{proof}
+I will induct on $n$ \\
+\textbf{Base case (n = 0):}
+$$fib(0) = 0 = \frac{\varphi^0 - \psi^0}{\sqrt{5}} = \frac{0}{\sqrt{5}} = 0$$
+\textbf{Base case (n = 1):}
+$$fib(1) = 1 = \frac{\varphi^1 - \psi^1}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1$$
+\textbf{Base case (n = 2):}
+$$fib(2) = fib(1) + fib(0) = 1 + 0 = 1 = \frac{\varphi^2 - \psi^2}{\sqrt{5}}
+= \frac{\frac{4\sqrt{5}}{4}}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1$$
+
+\newpage
+
+\noindent\textbf{Inductive Hypothesis:}
+Assume that for some $k\in\mathbb{N}_{0}$
+$$fib(k) = \frac{\varphi^k - \psi^k}{\sqrt{5}}$$\\
+\textbf{Inductive Step: } Show that
+$$fib(k + 1) = \frac{\varphi^{k+1} - \psi^{k+1}}{\sqrt{5}}$$
+\begin{flalign*}
+fib(k + 1) &= fib(k - 1 + 1) + fib(k - 2 + 1) &&\text{[By definition of series]} \\[1em]
+&= fib(k) + fib(k - 1) = \frac{\varphi^k - \psi^k}{\sqrt{5}} + \frac{\varphi^{k-1} - \psi^{k-1}}{\sqrt{5}} &&\text{[By I.H]} \\[1em]
+& = \frac{\varphi^k + \varphi^{k-1} - \psi^k - \psi^{k-1}}{\sqrt{5}}\\[1em]
+& = \frac{\frac{\varphi^{k+1} + \varphi^k}{\varphi} - \frac{\psi^{k+1} + \psi^k}{\psi}}{\sqrt{5}} =
+\frac{\frac{\varphi^k(\varphi+1)}{\varphi} - \frac{\psi^k(\psi + 1)}{\psi}}{\sqrt{5}}\\[1em]
+& = \frac{\frac{\varphi^k \varphi^2}{\varphi} - \frac{\psi^k \psi^2}{\psi}}{\sqrt{5}} =
+\frac{\varphi^k \varphi - \psi^k \psi}{\sqrt{5}} && \text{[By G.R property]}\\[1em]
+& = \frac{\varphi^{k+1} - \psi^{k+1}}{\sqrt{5}}
+\end{flalign*}
+$\therefore$ By the principle of induction, the claim holds for all $n\in\mathbb{N}_{0}$
+\end{proof}
+
+\end{document}
