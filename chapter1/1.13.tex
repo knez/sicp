@@ -32,8 +32,9 @@ Prove that fib(n) is the closest integer to $\frac{\varphi^n}{\sqrt{5}}$ by prov
 \end{equation*}
 
 \vspace{5mm}
-Golden ratio property
+Golden ratio properties
 $$\varphi^2 = \varphi + 1$$
+$$\psi^2 = \psi + 1$$
 \vspace{5mm}
 
 \begin{proof}
@@ -60,7 +61,7 @@ fib(k + 1) &= fib(k - 1 + 1) + fib(k - 2 + 1) &&\text{[By definition of series]}
 & = \frac{\frac{\varphi^{k+1} + \varphi^k}{\varphi} - \frac{\psi^{k+1} + \psi^k}{\psi}}{\sqrt{5}} =
 \frac{\frac{\varphi^k(\varphi+1)}{\varphi} - \frac{\psi^k(\psi + 1)}{\psi}}{\sqrt{5}}\\[1em]
 & = \frac{\frac{\varphi^k \varphi^2}{\varphi} - \frac{\psi^k \psi^2}{\psi}}{\sqrt{5}} =
-\frac{\varphi^k \varphi - \psi^k \psi}{\sqrt{5}} && \text{[By G.R property]}\\[1em]
+\frac{\varphi^k \varphi - \psi^k \psi}{\sqrt{5}} && \text{[By G.R properties]}\\[1em]
 & = \frac{\varphi^{k+1} - \psi^{k+1}}{\sqrt{5}}
 \end{flalign*}
 $\therefore$ By the principle of induction, the claim holds for all $n\in\mathbb{N}_{0}$
